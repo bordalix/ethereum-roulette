@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ethereum Roulette</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      img#wheel {
+        -webkit-transition: -webkit-transform 2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 text-center">
+          <h1>Ethereum Roulette</h1>
+          <p>
+            <a href="https://joaobordalo.com/labs/ethereum-roulette.html">more about the project</a>
+            &middot;
+            <a href="https://github.com/bordalix/ethereum-roulette.git">github repo</a>
+          <hr/>
+          <p id="errorPanel" style="color:red">&nbsp;</p>
+          <br/>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <p>
+          Roulette balance: <span id="balance"></span>
+        </p>
+        <p>Your balance: <span id="yourBalance"></span></p>
+        <p>
+          Your winnings: <span id="winnings"></span>
+          <button onclick="cashOut()">Cash Out</button>
+        </p>
+        <p>Bets counter: <span id="betsCount"></span></p>
+        <p>Bets value: <span id="betsValue"></span></p>
+        <p>Time until next spin: <span id="timeUntilNextSpin"></span></p>
+      </div>
+      <div class="col-xs-3 text-center">
+        <img id="wheel" src="images/wheel.png" />
+        <br /><br />
+        <button onclick="spinWheel()">Spin wheel</button>
+      </div>
+      <div class="col-xs-6">
+        <img id="layout" src="images/layout.png" usemap="#mapname" />
+        <map id="rouletteTable" name="mapname">
+          <area id="n00" shape="rect" coords="  7, 13, 40,149"> <!-- numbers (37) -->
+          <area id="n01" shape="rect" coords=" 40,104, 70,148">
+          <area id="n02" shape="rect" coords=" 40, 60, 70,104">
+          <area id="n03" shape="rect" coords=" 40, 16, 70, 60">
+          <area id="n04" shape="rect" coords=" 70,104,100,148">
+          <area id="n05" shape="rect" coords=" 70, 60,100,104">
+          <area id="n06" shape="rect" coords=" 70, 16,100, 60">
+          <area id="n07" shape="rect" coords="100,104,130,148">
+          <area id="n08" shape="rect" coords="100, 60,130,104">
+          <area id="n09" shape="rect" coords="100, 16,130, 60">
+          <area id="n10" shape="rect" coords="130,104,160,148">
+          <area id="n11" shape="rect" coords="130, 60,160,104">
+          <area id="n12" shape="rect" coords="130, 16,160, 60">
+          <area id="n13" shape="rect" coords="160,104,190,148">
+          <area id="n14" shape="rect" coords="160, 60,190,104">
+          <area id="n15" shape="rect" coords="160, 16,190, 60">
+          <area id="n16" shape="rect" coords="190,104,220,148">
+          <area id="n17" shape="rect" coords="190, 60,220,104">
+          <area id="n18" shape="rect" coords="190, 16,220, 60">
+          <area id="n19" shape="rect" coords="220,104,250,148">
+          <area id="n20" shape="rect" coords="220, 60,250,104">
+          <area id="n21" shape="rect" coords="220, 16,250, 60">
+          <area id="n22" shape="rect" coords="250,104,280,148">
+          <area id="n23" shape="rect" coords="250, 60,280,104">
+          <area id="n24" shape="rect" coords="250, 16,280, 60">
+          <area id="n25" shape="rect" coords="280,104,310,148">
+          <area id="n26" shape="rect" coords="280, 60,310,104">
+          <area id="n27" shape="rect" coords="280, 16,310, 60">
+          <area id="n28" shape="rect" coords="310,104,340,148">
+          <area id="n29" shape="rect" coords="310, 60,340,104">
+          <area id="n30" shape="rect" coords="310, 16,340, 60">
+          <area id="n31" shape="rect" coords="340,104,370,148">
+          <area id="n32" shape="rect" coords="340, 60,370,104">
+          <area id="n33" shape="rect" coords="340, 16,370, 60">
+          <area id="n34" shape="rect" coords="370,104,400,148">
+          <area id="n35" shape="rect" coords="370, 60,400,104">
+          <area id="n36" shape="rect" coords="370, 16,400, 60">
+          <area id="c_1" shape="rect" coords="160,181,220,213"> <!-- colors (2) -->
+          <area id="c_0" shape="rect" coords="220,181,280,213">
+          <area id="d_0" shape="rect" coords=" 40,148,160,181"> <!-- dozens (3) -->
+          <area id="d_1" shape="rect" coords="160,148,280,181">
+          <area id="d_2" shape="rect" coords="280,148,400,181">
+          <area id="e_0" shape="rect" coords=" 40,181,100,213"> <!-- eighteens (2) -->
+          <area id="e_1" shape="rect" coords="340,181,400,213">
+          <area id="m_0" shape="rect" coords="100,181,160,213"> <!-- modulus (2) -->
+          <area id="m_1" shape="rect" coords="280,181,340,213">
+          <area id="p_0" shape="rect" coords="400,104,430,148"> <!-- pilar/columns (3) -->
+          <area id="p_1" shape="rect" coords="400, 60,430,104">
+          <area id="p_2" shape="rect" coords="400, 16,430, 60">
+        </map>
+        <p><strong>Your bets:</strong></p>
+        <div id="betsList"></div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
