@@ -31,7 +31,8 @@ and visit the dapp url:
 
 [http://ethereum-roulette.ga](http://ethereum-roulette.ga)
 
-Every bet has a fixed amount of 0.01 ether (around €6) and you can bet:
+Every bet has a fixed amount of 0.01 ether (around €6) and you can bet by
+clicking on the board:
 
 - On a number (0 to 36), with a payout of 36;
 - On a dozen (1-12, 13-24, 25-36), with a payout of 3;
@@ -133,6 +134,7 @@ You can clone the repo and running it on your own private network.
 
 - Ganache: you can download a self-contained prebuilt Ganache binary for your platform of choice using the "Download" button on the [Ganache website](http://truffleframework.com/ganache/). After, run it and keep it running, this will deploy a private Ethereum network on your machine, port 7545.
 - npm: follow [this instructions](https://www.npmjs.com/get-npm) to install npm
+- Metamask Chrome extension installed and running
 
 **How to lunch the ethereum roulette on your machine**
 
