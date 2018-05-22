@@ -10,15 +10,29 @@
       img#wheel {
         -webkit-transition: -webkit-transform 2s ease-out;
       }
+      p#warning {
+        text-align: center;
+        background-color: red;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: white;
+        padding: 10px;
+        display: none;
+      }
+      p#warning a {
+        color: white;
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
+    <p id="warning"></p>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2 text-center">
           <h1>Ethereum Roulette</h1>
-          <p>
-            <a href="https://github.com/bordalix/ethereum-roulette.git">github repo</a>
+          <p>A casino roulette PoC deployed on the ethereum ropsten test network</p>
+          <p><a href="https://github.com/bordalix/ethereum-roulette.git">github repo</a></p>
           <hr/>
           <p id="errorPanel" style="color:red">&nbsp;</p>
           <br/>

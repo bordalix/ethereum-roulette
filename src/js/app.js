@@ -15,6 +15,12 @@ const betTypes = [
   'eighteen', 'modulus', 'number'
 ];
 
+function showWarning(msg) {
+  var p = document.getElementById('warning');
+  p.innerHTML = msg;
+  p.style.display = 'block';
+}
+
 function init() {
   return initWeb3();
 }
@@ -28,7 +34,8 @@ function initWeb3() {
     web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
   }
   web3 = new Web3(web3Provider);
-  return initContract();
+  if (web3.isConnected()) return initContract();
+  showWarning('You need <a href="https://metamask.io/">Metamask</a> installed and connected to the ropsten network');
 }
 
 function initContract() {
@@ -36,18 +43,24 @@ function initContract() {
   $.getJSON('Roulette.json', (data) => {
     web3.version.getNetwork((err, netId) => {
       let address;
+      console.log(netId);
       switch (netId) {
-        case "1":
-          console.log('This is mainnet')
+        case "1": // main network
+          showWarning("You're on the Ethereum main network. Please switch to Ropsten.");
           break
-        case "2":
-          console.log('This is the deprecated Morden test network.')
+        case "2": // morden
+          showWarning("You're on the Morden test network. Please switch to Ropsten.");
           break
-        case "3":
-          console.log('This is the ropsten test network.');
+        case "3": // ropsten
           address = '0xe796f0ecd30720050e51b0a356a70a6564475ead';
           break
-        default:
+        case "4": // rinkeby
+          showWarning("You're on the Rinkeby test network. Please switch to Ropsten.");
+          break
+        case "42": // kovan
+          showWarning("You're on the Kovan test network. Please switch to Ropsten.");
+          break
+        default: // unknown network, should be ganache
           console.log('This is an unknown network.');
           address = data.networks[netId].address;
       }
