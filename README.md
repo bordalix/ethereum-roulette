@@ -2,6 +2,8 @@
 
 A Proof of Concept casino roulette, deployed on the ropsten network.
 
+[http://ethereum-roulette.ga](http://ethereum-roulette.ga)
+
 **Table of contents**
 
 - [Motivation](#motivation)
@@ -26,7 +28,7 @@ The web3 library is injected in the page by the Chrome extension
 
 You’ll have to use the Metamask Chrome extension installed, have an account
 on the ropsten network, have some ether (get some
-[here](http://faucet.ropsten.be:3001/) or [here](https://faucet.metamask.io/),
+[here](http://faucet.ropsten.be:3001/) or [here](https://faucet.metamask.io/)),
 and visit the dapp url:
 
 [http://ethereum-roulette.ga](http://ethereum-roulette.ga)
@@ -134,9 +136,11 @@ You can clone the repo and running it on your own private network.
 
 - Ganache: you can download a self-contained prebuilt Ganache binary for your platform of choice using the "Download" button on the [Ganache website](http://truffleframework.com/ganache/). After, run it and keep it running, this will deploy a private Ethereum network on your machine, port 7545.
 - npm: follow [this instructions](https://www.npmjs.com/get-npm) to install npm
-- Metamask Chrome extension installed and running
+- [Metamask](https://metamask.io) Chrome extension installed and running
 
 **How to lunch the ethereum roulette on your machine**
+
+Run Ganache and keep it running.
 
 Clone the repo from github:
 
@@ -152,6 +156,6 @@ Run the webserver
 
     npm run dev
 
-You now have the ethereum roulette on [http://localhost:4000](http://localhost:4000).
+You now have the ethereum roulette on [http://localhost:3000](http://localhost:3000).
 
 Have fun. 
