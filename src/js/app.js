@@ -51,7 +51,7 @@ function initContract() {
           showWarning("You're on the Morden test network. Please switch to Ropsten.");
           break
         case "3": // ropsten
-          address = '0xe796f0ecd30720050e51b0a356a70a6564475ead';
+          address = '0xba3bb2eb6ec54fc62bef844f8bad8044724d801b';
           break
         case "4": // rinkeby
           showWarning("You're on the Rinkeby test network. Please switch to Ropsten.");
