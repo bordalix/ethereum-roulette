@@ -43,7 +43,6 @@ function initContract() {
   $.getJSON('Roulette.json', (data) => {
     web3.version.getNetwork((err, netId) => {
       let address;
-      console.log(netId);
       switch (netId) {
         case "1": // main network
           showWarning("You're on the Ethereum main network. Please switch to Ropsten.");
