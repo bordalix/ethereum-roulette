@@ -1,0 +1,24 @@
+* {
+    -webkit-text-size-adjust: none;
+}
+
+img#wheel {
+  -webkit-transition: -webkit-transform 2s ease-out;
+  width: auto;
+  height: 225px;
+}
+
+p#warning {
+  text-align: center;
+  background-color: red;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  padding: 10px;
+  display: none;
+}
+
+p#warning a {
+  color: white;
+  text-decoration: underline;
+}
