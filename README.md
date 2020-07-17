@@ -15,7 +15,7 @@ A Proof of Concept casino roulette, deployed on the ropsten network.
 ### Motivation
 
 I decided to learn more about developing smart contracts, and since I learn by
-building stuff, so I decided to implement a casino roulette, with the business
+building stuff, I decided to implement a casino roulette, with the business
 logic being implemented in Solidity, the language of choice to develop smart
 contracts in the Ethereum blockchain.
 

@@ -8,24 +8,7 @@
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
     <title>Ethereum Roulette</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      img#wheel {
-        -webkit-transition: -webkit-transform 2s ease-out;
-      }
-      p#warning {
-        text-align: center;
-        background-color: red;
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: white;
-        padding: 10px;
-        display: none;
-      }
-      p#warning a {
-        color: white;
-        text-decoration: underline;
-      }
-    </style>
+    <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
     <p id="warning"></p>
@@ -34,16 +17,23 @@
         <div class="col-xs-12 col-sm-8 col-sm-push-2 text-center">
           <h1>Ethereum Roulette</h1>
           <p>A casino roulette PoC deployed on the ethereum ropsten test network</p>
-          <p><a href="https://github.com/bordalix/ethereum-roulette.git">github repo</a></p>
+          <p>
+            <a href="https://github.com/bordalix/ethereum-roulette.git">
+              github
+            </a>
+            &nbsp; &middot; &nbsp;
+            <a href="https://ropsten.etherscan.io/address/0xba3bb2eb6ec54fc62bef844f8bad8044724d801b">
+              etherscan
+            </a>
+          </p>
           <hr/>
           <p id="errorPanel" style="color:red">&nbsp;</p>
           <br/>
         </div>
       </div>
-      <div class="col-xs-3">
-        <p>
-          Roulette balance: <span id="balance"></span>
-        </p>
+      <div class="col-xs-4 col-sm-4 col-md-3">
+        <p><strong>ROULETTE DATA</strong></p>
+        <p>Roulette balance: <span id="balance"></span></p>
         <p>Your balance: <span id="yourBalance"></span></p>
         <p>
           Your winnings: <span id="winnings"></span>
@@ -53,13 +43,13 @@
         <p>Bets value: <span id="betsValue"></span></p>
         <p>Time until next spin: <span id="timeUntilNextSpin"></span></p>
       </div>
-      <div class="col-xs-3 text-center">
+      <div class="col-xs-8 col-sm-8 col-md-3 text-center">
         <p>&#8595;<p>
         <img id="wheel" src="images/wheel.png" />
         <br /><br />
         <button onclick="spinWheel()">Spin wheel</button>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <p>Click on the board to make your bet:<p>
         <img id="layout" src="images/layout.png" usemap="#mapname" />
         <map id="rouletteTable" name="mapname">
